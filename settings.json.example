@@ -1,0 +1,9 @@
+{
+  "award_base": 1000,
+  "award_percent": 1,
+  "last_block_num": 0,
+  "viz_account": {
+    "login": "...",
+    "key": "5..."
+  }
+}

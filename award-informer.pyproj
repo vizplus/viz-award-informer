@@ -1,0 +1,50 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>4df03a8e-fb39-4732-babc-3b0a57d13b52</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>award_informer.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>award-informer</Name>
+    <RootNamespace>award-informer</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="award_informer.py" />
+    <Compile Include="tvizbase\api.py" />
+    <Compile Include="tvizbase\base58.py" />
+    <Compile Include="tvizbase\broadcast.py" />
+    <Compile Include="tvizbase\key.py" />
+    <Compile Include="tvizbase\operations.py" />
+    <Compile Include="tvizbase\storage.py" />
+    <Compile Include="tvizbase\types.py" />
+    <Compile Include="tvizbase\ws_client.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tvizbase\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="settings.json" />
+    <Content Include="settings.json.example" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

@@ -35,6 +35,7 @@
     <Folder Include="tvizbase\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="README.md" />
     <Content Include="settings.json" />
     <Content Include="settings.json.example" />
   </ItemGroup>

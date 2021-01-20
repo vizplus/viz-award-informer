@@ -11,8 +11,12 @@ with open(os.path.dirname(__file__) + '/settings.json', 'r') as sett_file:
 viz = Api()
 #Getting the head block number from the blockchain
 block_num = viz.get_dynamic_global_properties()['head_block_number']
+#Number of blocks for energy recovery
+block_count = (20 * 60 * 24 / 20) * settings['award_percent']
+#Blcok delay for posting in the blockchain
+block_count -= 2
 #Comparing the head block number with the number of the last operation
-if block_num < settings['last_block_num'] + 1440 - 5:
+if block_num <= settings['last_block_num'] + block_count:
     sys.exit()
 #Getting account data
 account = viz.get_accounts([settings['viz_account']['login']])[0]
@@ -39,7 +43,7 @@ for op in ops:
         op[1]['initiator'] == settings['viz_account']['login'] and 
         op[1]['receiver'] == receiver
     ):
-        award_size = float(op[1]['shares'].split()[0]) / 10
+        award_size = round(float(op[1]['shares'].split()[0]) * (100 / settings['award_percent']) / settings['award_base'], 6)
         #Sending new custom operation in the blockchain
         viz.custom(
             'award_informer',
